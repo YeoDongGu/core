@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.Or;
 
+import static org.assertj.core.api.Assertions.*;
+
 class OrderServiceTest {
     MemberService memberService;
     OrderService orderService;
@@ -26,7 +28,7 @@ class OrderServiceTest {
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
-        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+        assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 
 
